@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 * {
@@ -18,11 +17,89 @@
 body {
     width: 100%;
     height: 100vh;
-    background-color: var(--light);
-    user-select: none;
+    /* background-color: var(--light); */
     color: white;
     font-family: 'Open Sans';
-    overflow: hidden;
+    overflow: hidden;  
+    background-image: url('../images/registration_bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-container {
+    display: block;
+    height: 75vh;
+    background-color: var(--dark);
+    margin: auto;
+    margin-top: 7%;
+    width: 30%;
+    border-radius: 40px;
+    /* padding: 50px; */
+    position: relative;
+}
+
+.form-container::after{
+    content: '';
+    /* background-image: url('https://static.vecteezy.com/system/resources/thumbnails/027/254/720/small/colorful-ink-splash-on-transparent-background-png.png'); */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    /* background: red; */
+    top: 100px;
+    right: -200px;
+
+   
+}
+
+.inputs {
+    display: block;
+    text-align: left;
+    margin: auto;
+    margin-top: 50px;
+}
+
+input {
+    display: block;
+    margin: auto;
+    margin-top: 7px;
+    width: 70%;
+    height: 6vh;
+    border-radius: 10px;
+    background-color: var(--light);
+    text-align: center;
+    font-size: 15px;
+}
+
+button {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 30%;
+    height: 6vh;
+    background-color: var(--material);
+    color: snow;
+    border-radius: 10px;
+    font-size: 15px;
+    letter-spacing: 3px;
+}
+
+.reg {
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 10%;
+
+    letter-spacing: 3px;
+}
+
+.login-redirect {
+    display: flex;
+    
 }
 
 ::-webkit-scrollbar {

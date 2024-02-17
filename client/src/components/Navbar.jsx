@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../css/home.css';
 import appLogo from '../images/appLogo.png';
 import { getCurrentUserData } from '../services/authService';
 import { auth, database } from '../firebase'; // Import auth and database
