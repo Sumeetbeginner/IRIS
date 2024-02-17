@@ -1,4 +1,4 @@
-# AI-Driven Personalized Education Platform
+# AI-Driven Personalized Education Platform - BrainByte
 
 ## Overview
 
