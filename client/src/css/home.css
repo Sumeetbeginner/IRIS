@@ -79,11 +79,12 @@ p{
 }
 
 #mainHome{
-    height: 100vh;
+    height: 98vh;
     width: 80%;
     position: fixed;
     top: 0%;
     margin-left: 19.5%;
+    overflow-y: scroll;
 
 }
 
@@ -151,4 +152,52 @@ p{
 
 #searchField:focus{
     border: solid 2px var(--material);
+}
+
+.courseCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns, adjust as needed */
+    gap: 20px; /* Adjust the gap between cards as needed */
+    margin-left: 1%;
+    margin-top: 4%;
+   
+    
+    
+}
+
+.courseCard {
+    border: 1px solid var(--material);
+    padding: 20px;
+    text-align: center;
+    background-color: var(--dark);
+    border-radius: 10px;
+}
+
+.courseCard img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Add border-radius for rounded corners */
+}
+
+.courseInfo {
+    margin-top: 10px;
+}
+
+.courseDesc{
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.courseBtn{
+    width: 50%;
+    height: 5vh;
+    border-radius: 10px;
+    background-color: var(--material);
+    color: white;
+    font-size: 17px;
+    margin-top: 7%;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
