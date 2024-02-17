@@ -23,7 +23,11 @@ const RegisterPage = () =>{
 
     return (
         
+        <div id="body2">
+              <div id='formParent'>
+              </div>
         <div className='form-container'> 
+      
             <h2 className='reg'>REGISTER</h2>
             <div className="inputs">
                 <input type="text" placeholder='Enter Username' value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -36,12 +40,13 @@ const RegisterPage = () =>{
 
             <button onClick={handleRegister}>REGISTER</button>
             <div className="login-redirect">
-                <p>Already have an account ?</p>
-                <a href="/login">LOGIN</a>
+                <p>Already have an account ? <a href="/login">LOGIN</a></p>
+                
             </div>
-
+            
         </div>
     
+        </div>
     )
 
 }
