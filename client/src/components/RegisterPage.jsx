@@ -17,6 +17,7 @@ const RegisterPage = () =>{
 
             console.log('User Registered!');
         }
+        
         catch(error){
             console.log(error.message);
         }

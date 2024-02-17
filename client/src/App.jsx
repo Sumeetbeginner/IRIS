@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Updated import
-
+import Home from './components/Home';
 import RegisterPage from './components/RegisterPage';
 import LoginPage from './components/LoginPage';
 
@@ -11,7 +11,8 @@ const App = () => {
       <Routes>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        {/* Add other routes as needed */}
+        <Route path="/" element={<Home />} />
+         
       </Routes>
     </Router>
   );
