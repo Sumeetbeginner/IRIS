@@ -85,3 +85,54 @@ p{
     margin-left: 19.5%;
 
 }
+
+#topBar{
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#selBox{
+    display: flex;
+}
+
+#selIcon{
+    display: flex;
+
+}
+
+#selCourse{
+
+    width: fit-content;
+    padding: 8% 25%;
+    font-size: 19px;
+    background-color: var(--material);
+    cursor: pointer;
+    border-radius: 10px 0px  0px 10px;
+}
+
+#selGames{
+    width: fit-content;
+    padding: 8% 25%;
+    font-size: 19px;
+    background-color: var(--dark);
+    cursor: pointer;
+    border-radius: 0px 10px  10px 0px;
+  
+}
+
+#topBar{
+    margin-top: 3%;
+    margin-left: 5%;
+    
+}
+
+#selIcon i{
+    font-size: 25px;
+  margin-top: 20%;
+  cursor: pointer;
+}
+
+.fa-user{
+    margin-left: 90%;
+}
