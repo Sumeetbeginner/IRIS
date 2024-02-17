@@ -1,11 +1,15 @@
 import React from 'react'
 import '../css/home.css'
 import Navbar from './Navbar'
+import Main from './Main'
 
 const Home = () => {
   return (
-    <div>
+    <div id='flexBox'>
+  
       <Navbar/>
+      <Main/>
+      
     </div>
   )
 }

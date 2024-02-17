@@ -51,8 +51,24 @@ const Navbar = () => {
                 {isLoading && <p>Loading...</p>}
                 {error && <p>Error: {error}</p>}
                 {userData && (
-                    <p id='userName'>{userData.personalInfo.username}</p>
+                    <p id='userName'>{"Hello, "+ userData.personalInfo.username}</p>
                 )}
+
+                <div className="menu">
+                    <div className='menuItem'>Home</div>
+                    <div className='menuItem'>Dashboard</div>
+                    <div className='menuItem'>Asessments</div>
+                    <div className='menuItem'>Roadmap</div>
+                    <div className='menuItem'>Clubs</div>
+                    <div className='menuItem'>Councelling</div>
+                </div>
+
+                <div id="menuLast">
+
+                <i class="fas fa-cog"></i>
+                <i class="fa-solid fa-power-off"></i>
+
+                </div>
             </div>
         </div>
     );
