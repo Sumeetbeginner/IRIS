@@ -155,7 +155,7 @@ p{
     border: solid 2px var(--material);
 }
 
-.courseCards {
+.courseCards, .gameCards {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal columns, adjust as needed */
     gap: 20px; /* Adjust the gap between cards as needed */
@@ -166,7 +166,7 @@ p{
     
 }
 
-.courseCard {
+.courseCard, .gameCard {
     border: 1px solid var(--material);
     padding: 20px;
     text-align: center;
@@ -179,17 +179,22 @@ p{
     height: auto;
     border-radius: 8px; /* Add border-radius for rounded corners */
 }
+.gameCard img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Add border-radius for rounded corners */
+}
 
-.courseInfo {
+.gameInfo , .courseInfo{
     margin-top: 10px;
 }
 
-.courseDesc{
+.courseDesc, .gameDesc{
     font-size: 14px;
     font-weight: 100;
 }
 
-.courseBtn{
+.courseBtn, .gameBtn{
     width: 50%;
     height: 5vh;
     border-radius: 10px;

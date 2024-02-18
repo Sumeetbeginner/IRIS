@@ -6,10 +6,31 @@ import course4  from '../images/courses/course4.webp'
 import course5  from '../images/courses/course5.webp'
 import course6  from '../images/courses/course6.webp'
 
+import game1 from '../images/games/game1.webp'
+import game2  from '../images/games/game2.png'
+import game3  from '../images/games/game3.avif'
+// import game4  from '../images/games/game4.webp'
+// import game5  from '../images/games/game5.webp'
+// import game6  from '../images/games/game6.webp'
+
 
 const Main = () => {
 
     const [searchQuery, setSearchQuery] = useState('')
+
+    const [type, setType] = useState('courses')
+
+    const changeToGames = () => {
+        setType('games');
+        document.getElementById('selGames').style.backgroundColor = "#3a3fc5";
+        document.getElementById('selCourse').style.backgroundColor = "#14152a";
+    };
+    
+    const changeToCourses = () => {
+        setType('courses');
+        document.getElementById('selCourse').style.backgroundColor = "#3a3fc5";
+        document.getElementById('selGames').style.backgroundColor = "#14152a";
+    };
 
     const courses = [
         {
@@ -56,13 +77,44 @@ const Main = () => {
         }    
      
     ];
+    const games = [
+        {
+            id: 1,
+            name: 'MCQ Quiz',
+            description: 'Test your knowledge in various programming concepts, from arrays and linked lists to dynamic programming. Perfect for assessing your problem-solving skills.',
+            image: game1, 
+            branch: 'Computer Science'
+        },
+        {
+            id: 2,
+            name: 'Coding Challenges',
+            description: 'Take on coding challenges to sharpen your skills and delve into Object-Oriented Programming (OOP) principles. Explore encapsulation, inheritance, and polymorphism for efficient software design and development.',
+            image: game2,
+            branch: 'Information Technology'
+        },
+        {
+            id: 3,
+            name: 'Electrical Simulations',
+            description: 'Immerse yourself in electrical simulations to experience the intricacies of fluid dynamics and engineering. Understand thermodynamics and fluid behavior, gaining insights crucial for mechanical design and analysis.',
+            image: game3,
+            branch: 'Electrical Engineering'
+        },
+        
+      
+    ];
+    
 
     const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    const filteredGames = games.filter(game => game.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
 
     const handleStartCourse = (id) => {
         // Assuming you have a route for displaying course details
         history.push(`/course/${id}`);
+    };
+    const handleStartGame = (id) => {
+        // Assuming you have a route for displaying course details
+        history.push(`/game/${id}`);
     };
     
     return (
@@ -70,8 +122,8 @@ const Main = () => {
             <div id="topBar">
 
                 <div id="selBox">
-                    <div id='selCourse'>Courses</div>
-                    <div id='selGames'>Games</div>
+                    <div onClick={changeToCourses} id='selCourse'>Courses</div>
+                    <div onClick={changeToGames} id='selGames'>Games</div>
                 </div>
 
                 <input
@@ -86,8 +138,7 @@ const Main = () => {
                     <i class="fa-solid fa-user"></i>
                 </div>
             </div>
-
-            {/* Create a Map Function and pass course pic , course name , course description, start button*/}
+            {type === "courses" ? (
             <div className="courseCards">
                 {filteredCourses.map((course) => (
                     <div key={course.id} className="courseCard">
@@ -100,7 +151,22 @@ const Main = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        ) : (
+
+            <div className="gameCards">
+                {filteredGames.map((game) => (
+                    <div key={game.id} className="gameCard">
+                        <img src={game.image} alt={`Game ${game.id}`} />
+                        <div className="gameInfo">
+                            <h3>{game.name}</h3>
+                            <p className='gameDesc'>{game.description}</p>
+                            <button className='gameBtn' onClick={() => handleStartGame(game.id)}>Play</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        )}
+    </div>
     )
 }
 
