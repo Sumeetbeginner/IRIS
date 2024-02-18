@@ -17,11 +17,27 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleLogin}>Login</button>
+
+    <div id="body3">    
+      <div id='formParent'>
+      </div>    
+      <div className="log-container">
+        <h2 className='log'>LOGIN</h2>
+
+        <div className="log-inputs">
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+
+        <button onClick={handleLogin}>LOGIN</button>
+        <div className="reg-redirect">
+          <p>Don't have an account ? <a href="/register">REGISTER</a></p>
+                
+        </div>
+
+      </div>
+
+
     </div>
   );
 };

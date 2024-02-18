@@ -107,9 +107,189 @@ body {
     display: flex;
     
 }
+.login-redirect a{
+    color: var(--material);
+}
+ 
+/* ####### LOGIN PAGE  ####### */
+
+#body3 {
+    background-image: url('../images/registration_bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.log-container {
+    display: block;
+    height: 56vh;
+    background-color: var(--dark);
+    margin: auto;
+    width: 30%;
+    border-radius: 40px;
+}
+
+.log-inputs {
+    display: block;
+    text-align: left;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.log-inputs input {
+    display: block;
+    margin: auto;
+    margin-top: 7px;
+    width: 70%;
+    height: 6vh;
+    border-radius: 10px;
+    background-color: var(--light);
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    margin-top: 4%;
+}
+
+.log-inputs input:focus{
+    border: solid 2px var(--material);
+}
+
+.log-container button {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 30%;
+    height: 6vh;
+    background-color: var(--material);
+    color: snow;
+    border-radius: 10px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    border: none;
+}
+
+.log-container button:hover {
+    cursor: pointer;
+}
+
+.log {
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 10%;
+
+    letter-spacing: 3px;
+}
+
+.reg-redirect a {
+    color: var(--material);
+}
+
+p{
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+}
+    
+
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+p{
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+}
+
+
+/* ####### LOGIN PAGE  ####### */
+
+#body3 {
+    background-image: url('../images/registration_bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.log-container {
+    display: block;
+    height: 56vh;
+    background-color: var(--dark);
+    margin: auto;
+    width: 30%;
+    border-radius: 40px;
+}
+
+.log-inputs {
+    display: block;
+    text-align: left;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.log-inputs input {
+    display: block;
+    margin: auto;
+    margin-top: 7px;
+    width: 70%;
+    height: 6vh;
+    border-radius: 10px;
+    background-color: var(--light);
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    margin-top: 4%;
+}
+
+.log-inputs input:focus{
+    border: solid 2px var(--material);
+}
+
+.log-container button {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 30%;
+    height: 6vh;
+    background-color: var(--material);
+    color: snow;
+    border-radius: 10px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    border: none;
+}
+
+.log-container button:hover {
+    cursor: pointer;
+}
+
+.log {
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 10%;
+
+    letter-spacing: 3px;
+}
+
+.reg-redirect a {
+    color: var(--material);
 }
 
 p{
