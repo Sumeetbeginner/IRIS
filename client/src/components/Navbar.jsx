@@ -1,76 +1,96 @@
 import React, { useEffect, useState } from 'react';
 import appLogo from '../images/appLogo.png';
 import { getCurrentUserData } from '../services/authService';
-import { auth, database } from '../firebase'; // Import auth and database
+import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-
-
+import { useParams, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../css/home.css';
 
 const Navbar = () => {
+  const [userData, setUserData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [current, setCurrent] = useState("menuHome");
 
+  const location = useLocation();
+  const { paramName1, paramName2 } = useParams();
 
-    const [userData, setUserData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const handleClick = (clickedElementId) => {
+    localStorage.setItem("CurrId", clickedElementId);
+    setCurrent(clickedElementId);
+  };
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const fetchUserData = async () => {
-                    try {
-                        const currentUserData = await getCurrentUserData();
-                        setUserData(currentUserData);
-
-                        console.log(currentUserData);
-                    } catch (error) {
-                        console.error('Error fetching user data:', error.message);
-                        setError(error.message);
-                    } finally {
-                        setIsLoading(false);
-                    }
-                };
-    
-                fetchUserData();
-            } else {
-                setIsLoading(false);
-                console.warn('User is not authenticated.');
-            }
-        });
-    
-        return () => {
-            unsubscribe(); // Cleanup the subscription
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const fetchUserData = async () => {
+          try {
+            const currentUserData = await getCurrentUserData();
+            setUserData(currentUserData);
+          } catch (error) {
+            console.error('Error fetching user data:', error.message);
+            setError(error.message);
+          } finally {
+            setIsLoading(false);
+          }
         };
-    }, []);
-    
 
-    return (
-        <div>
-            <div id='sideBar'>
-                <img className='image' src={appLogo} alt="" />
-                {isLoading && <p>Loading...</p>}
-                {error && <p>Error: {error}</p>}
-                {userData && (
-                    <p id='userName'>{"Hello, "+ userData.personalInfo.username}</p>
-                )}
+        fetchUserData();
+      } else {
+        setIsLoading(false);
+        console.warn('User is not authenticated.');
+      }
+    });
 
-                <div className="menu">
-                    <div className='menuItem'>Home</div>
-                    <div className='menuItem'>Dashboard</div>
-                    <div className='menuItem'>Asessments</div>
-                    <div className='menuItem'>Roadmap</div>
-                    <div className='menuItem'>Clubs</div>
-                    <div className='menuItem'>Councelling</div>
-                </div>
+    return () => {
+      unsubscribe(); // Cleanup the subscription
+    };
+  }, []);
 
-                <div id="menuLast">
+  return (
+    <div>
+      <div id='sideBar'>
+        <img className='image' src={appLogo} alt="" />
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Error: {error}</p>}
+        {userData && (
+          <p id='userName'>{"Hello, " + userData.personalInfo.username}</p>
+        )}
 
-                <i class="fas fa-cog"></i>
-                <i class="fa-solid fa-power-off"></i>
+        <div className="menu">
+          <NavLink to="/" activeClassName='addbgcolor' exact>
+            <div id='menuHome' onClick={() => handleClick('menuHome')} className={`menuItem ${current === 'menuHome' ? 'addbgcolor' : ''}`}>Home</div>
+          </NavLink>
 
-                </div>
-            </div>
+          <NavLink to="/dashboard" activeClassName='addbgcolor'>
+            <div id='menuDashboard' onClick={() => handleClick('menuDashboard')} className={`menuItem ${current === 'menuDashboard' ? 'addbgcolor' : ''}`}>Dashboard</div>
+          </NavLink>
+
+          <NavLink to="/assessment" activeClassName='addbgcolor'>
+            <div id='menuAssessment' onClick={() => handleClick('menuAssessment')} className={`menuItem ${current === 'menuAssessment' ? 'addbgcolor' : ''}`}>Assessment</div>
+          </NavLink>
+
+          <NavLink to="/roadmap" activeClassName='addbgcolor'>
+            <div onClick={() => handleClick('menuRoadmap')} className={`menuItem ${current === 'menuRoadmap' ? 'addbgcolor' : ''}`} id='menuRoadmap'>Roadmap</div>
+          </NavLink>
+
+          <NavLink to="/clubs" activeClassName='addbgcolor'>
+            <div onClick={() => handleClick('menuClubs')} className={`menuItem ${current === 'menuClubs' ? 'addbgcolor' : ''}`}>Clubs</div>
+          </NavLink>
+
+          <NavLink to="/councelling" activeClassName='addbgcolor'>
+            <div id='menuCounseling' onClick={() => handleClick('menuCounseling')} className={`menuItem ${current === 'menuCounseling' ? 'addbgcolor' : ''}`}>Counseling</div>
+          </NavLink>
         </div>
-    );
+
+        <div id="menuLast">
+          <i className="fas fa-cog"></i>
+          <i className="fa-solid fa-power-off"></i>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

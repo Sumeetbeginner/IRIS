@@ -5,13 +5,11 @@ import course3  from '../images/courses/course3.webp'
 import course4  from '../images/courses/course4.webp'
 import course5  from '../images/courses/course5.webp'
 import course6  from '../images/courses/course6.webp'
+import { Link } from 'react-router-dom'; // 
 
 import game1 from '../images/games/game1.webp'
 import game2  from '../images/games/game2.png'
 import game3  from '../images/games/game3.avif'
-// import game4  from '../images/games/game4.webp'
-// import game5  from '../images/games/game5.webp'
-// import game6  from '../images/games/game6.webp'
 
 
 const Main = () => {
@@ -113,13 +111,15 @@ const Main = () => {
     const filteredGames = games.filter(game => game.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
     const handleStartCourse = (id) => {
-
-     
-        window.location.href=courses[id-1].path;
+        const coursePath = courses[id - 1].path;
+    
+        return <Link to={coursePath} />;
     };
+
     const handleStartGame = (id) => {
-       
-        window.location.href=games[id-1].path;
+        const gamePath = games[id - 1].path;
+    
+        return <Link to={gamePath} />;
     };
     
     return (
@@ -143,36 +143,41 @@ const Main = () => {
                     <i class="fa-solid fa-user"></i>
                 </div>
             </div>
-            {type === "courses" ? (
-            <div className="courseCards">
-                {filteredCourses.map((course) => (
-                    <div key={course.id} className="courseCard">
-                        <img src={course.image} alt={`Course ${course.id}`} />
-                        <div className="courseInfo">
-                            <h3>{course.name}</h3>
-                            <p className='courseDesc'>{course.description}</p>
-                            <button className='courseBtn' onClick={() => handleStartCourse(course.id)}>Start</button>
+            {type === 'courses' ? (
+                <div className="courseCards">
+                    {filteredCourses.map((course) => (
+                        <div key={course.id} className="courseCard">
+                            <img src={course.image} alt={`Course ${course.id}`} />
+                            <div className="courseInfo">
+                                <h3>{course.name}</h3>
+                                <p className='courseDesc'>{course.description}</p>
+                                {/* Use Link instead of window.location.href */}
+                                <Link to={course.path}>
+                                    <button className='courseBtn'>Start</button>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
-        ) : (
-
-            <div className="gameCards">
-                {filteredGames.map((game) => (
-                    <div key={game.id} className="gameCard">
-                        <img src={game.image} alt={`Game ${game.id}`} />
-                        <div className="gameInfo">
-                            <h3>{game.name}</h3>
-                            <p className='gameDesc'>{game.description}</p>
-                            <button className='gameBtn' onClick={() => handleStartGame(game.id)}>Play</button>
+                    ))}
+                </div>
+            ) : (
+                <div className="gameCards">
+                    {filteredGames.map((game) => (
+                        <div key={game.id} className="gameCard">
+                            <img src={game.image} alt={`Game ${game.id}`} />
+                            <div className="gameInfo">
+                                <h3>{game.name}</h3>
+                                <p className='gameDesc'>{game.description}</p>
+                                {/* Use Link instead of window.location.href */}
+                                <Link to={game.path}>
+                                    <button className='gameBtn'>Play</button>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
-        )}
-    </div>
-    )
-}
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
 
-export default Main
+export default Main;

@@ -7,6 +7,11 @@ import LoginPage from './components/LoginPage';
 import SimulationGame from './components/SimulationGame';
 import QuizGame from './components/QuizGame';
 import CodingGame from './components/CodingGame';
+import DashBoard from './components/DashBoard';
+import Councelling from './components/Councelling';
+import Roadmap from './components/Roadmap';
+import Clubs from './components/Clubs';
+import Assessment from './components/Assessment';
 
 const App = () => {
   return (
@@ -19,6 +24,11 @@ const App = () => {
         <Route path="/quizgame" element={< QuizGame/>} />
         <Route path="/codinggame" element={< CodingGame/>} />
         <Route path="/simulationgame" element={< SimulationGame/>} />
+        <Route path="/dashboard" element={< DashBoard/>} />
+        <Route path="/councelling" element={< Councelling/>} />
+        <Route path="/roadmap" element={< Roadmap/>} />
+        <Route path="/clubs" element={< Clubs/>} />
+        <Route path="/assessment" element={< Assessment/>} />
 
       </Routes>
     </Router>
