@@ -83,38 +83,43 @@ const Main = () => {
             name: 'MCQ Quiz',
             description: 'Test your knowledge in various programming concepts, from arrays and linked lists to dynamic programming. Perfect for assessing your problem-solving skills.',
             image: game1, 
-            branch: 'Computer Science'
+            branch: 'Computer Science',
+            path: '/quizgame'
         },
         {
             id: 2,
             name: 'Coding Challenges',
             description: 'Take on coding challenges to sharpen your skills and delve into Object-Oriented Programming (OOP) principles. Explore encapsulation, inheritance, and polymorphism for efficient software design and development.',
             image: game2,
-            branch: 'Information Technology'
+            branch: 'Information Technology',
+            path: '/codinggame'
         },
         {
             id: 3,
             name: 'Electrical Simulations',
             description: 'Immerse yourself in electrical simulations to experience the intricacies of fluid dynamics and engineering. Understand thermodynamics and fluid behavior, gaining insights crucial for mechanical design and analysis.',
             image: game3,
-            branch: 'Electrical Engineering'
+            branch: 'Electrical Engineering',
+            path: '/simulationgame'
         },
         
       
     ];
     
 
+    
+
     const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchQuery.toLowerCase()))
     const filteredGames = games.filter(game => game.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
-
     const handleStartCourse = (id) => {
-        // Assuming you have a route for displaying course details
-        history.push(`/course/${id}`);
+
+     
+        window.location.href=courses[id-1].path;
     };
     const handleStartGame = (id) => {
-        // Assuming you have a route for displaying course details
-        history.push(`/game/${id}`);
+       
+        window.location.href=games[id-1].path;
     };
     
     return (
