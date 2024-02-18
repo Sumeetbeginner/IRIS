@@ -1,4 +1,4 @@
-# AI-Driven Personalized Education Platform - BrainByte
+# AI-Driven Personalized Education Platform - IRIS
 
 ## Overview
 
