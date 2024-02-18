@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import course1 from '../images/courses/course1.webp'
 import course2  from '../images/courses/course2.webp'
 import course3  from '../images/courses/course3.webp'
@@ -8,6 +8,8 @@ import course6  from '../images/courses/course6.webp'
 
 
 const Main = () => {
+
+    const [searchQuery, setSearchQuery] = useState('')
 
     const courses = [
         {
@@ -51,14 +53,18 @@ const Main = () => {
             description: 'Explore the foundations of computer science with our specialized Discrete Mathematics course. From logic and set theory to graph theory and algorithms, develop critical thinking skills essential for computational problem-solving.',
             image: course6,
             branch: 'Computer Science'
-        }
-        
-        
-        
-        
+        }    
      
     ];
 
+    const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchQuery.toLowerCase()))
+
+
+    const handleStartCourse = (id) => {
+        // Assuming you have a route for displaying course details
+        history.push(`/course/${id}`);
+    };
+    
     return (
         <div id='mainHome'>
             <div id="topBar">
@@ -68,8 +74,13 @@ const Main = () => {
                     <div id='selGames'>Games</div>
                 </div>
 
-                <input placeholder='Search' id='searchField' type="search" />
-
+                <input
+                    placeholder='Search'
+                    id='searchField'
+                    type="search"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
                 <div id="selIcon">
                     <i class="fa-solid fa-trophy"></i>
                     <i class="fa-solid fa-user"></i>
@@ -78,7 +89,7 @@ const Main = () => {
 
             {/* Create a Map Function and pass course pic , course name , course description, start button*/}
             <div className="courseCards">
-                {courses.map((course) => (
+                {filteredCourses.map((course) => (
                     <div key={course.id} className="courseCard">
                         <img src={course.image} alt={`Course ${course.id}`} />
                         <div className="courseInfo">
