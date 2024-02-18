@@ -17,7 +17,6 @@ body {
     width: 100%;
     height: 100vh;
     background-color: var(--light);
-    user-select: none;
     color: white;
     font-family: 'Open Sans';
     overflow: hidden;
@@ -109,4 +108,69 @@ ul p{
 
 ul p:active{
     background-color: var(--material);
+}
+
+.codingPg{
+    text-align: center;
+    width: 95%;
+    height: 95vh;
+    display: block;
+    margin: auto;
+    margin-top: 1%;
+    background-color: var(--dark);
+    border-radius: 13px;
+}
+
+.codingPg h2{
+    text-align: center;
+    padding: 1% 0% ;
+    background-color: var(--material);
+    border-radius: 15px 15px 0px 0px;
+}
+
+.codingPg p:nth-child(2){
+
+    margin-top: 2%;
+    font-size: 22px;
+}
+
+.codingPg p:nth-child(5){
+
+    margin-top: 1%;
+    font-size: 22px;
+}
+
+.codingPg textarea{
+    
+    overflow-y: scroll;
+    padding: 2% 2%;
+    font-size: 15px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    margin-top: 2%;
+    width: 46%;
+    height: 43vh;
+    background-color: var(--light);
+    color: white;
+
+
+}
+
+textarea:focus{
+    border: solid 2px var(--material);
+}
+
+.codingPg button{
+    width: 16%;
+    display: block;
+    margin: auto;
+    margin-top: 1%;
+    border-radius: 10px;
+    background-color:var(--material);
+    outline: none;
+    border: none;
+    height: 5vh;cursor: pointer;
+    color: white;
+    font-size: 18px;
 }
