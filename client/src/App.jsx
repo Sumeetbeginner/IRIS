@@ -12,6 +12,7 @@ import Councelling from './components/Councelling';
 import Roadmap from './components/Roadmap';
 import Clubs from './components/Clubs';
 import Assessment from './components/Assessment';
+import './index.css'
 
 const App = () => {
   return (
