@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-const Roadmap = () => {
+const Assessment = () => {
   return (
     <div>
       
@@ -9,4 +9,4 @@ const Roadmap = () => {
   )
 }
 
-export default Roadmap
+export default Assessment
